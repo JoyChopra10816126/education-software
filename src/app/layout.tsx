@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "@cloudscape-design/global-styles/index.css";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -11,6 +12,8 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+import Navbar from "../components/Navbar";
 
 export const metadata: Metadata = {
   title: "Education Software",
@@ -25,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <Navbar />
         {children}
       </body>
     </html>
