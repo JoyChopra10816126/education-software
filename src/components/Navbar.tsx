@@ -7,7 +7,7 @@ export default function Navbar() {
         <TopNavigation
             identity={{
                 href: "/",
-                title: "Śrīmad-Bhāgavatam",
+                title: "Science of self realisation",
             }}
             utilities={[
                 {
