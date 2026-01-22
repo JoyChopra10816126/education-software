@@ -1,0 +1,12 @@
+@startuml Administrator-Provide-Access-Sequence-Diagram
+
+actor Administrator
+participant "SWP webapp" as SWPWebapp
+participant "User management service" as UserManagementService
+
+Administrator --> SWPWebapp : Submit request
+SWPWebapp --> UserManagementService : updateUser() 
+UserManagementService --> SWPWebapp : HTTP 200
+SWPWebapp --> Administrator : Success message
+
+@enduml

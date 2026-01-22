@@ -1,0 +1,12 @@
+@startuml Editor-Update-Chapter-Draft-Sequence-Diagram
+
+actor Editor
+participant "SWP webapp" as SWPWebapp
+participant "Content management service" as ContentManagementService
+
+Editor --> SWPWebapp : Submit form
+SWPWebapp --> ContentManagementService : updateChapter() 
+ContentManagementService --> SWPWebapp : HTTP 200
+SWPWebapp --> Editor : Success message
+
+@enduml

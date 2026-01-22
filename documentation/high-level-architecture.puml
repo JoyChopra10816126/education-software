@@ -1,0 +1,40 @@
+@startuml SWP-Component-Diagram
+
+left to right direction
+
+title Sadhakas Web Platform (SWP) - Component Diagram
+
+actor Viewer
+actor Editor
+actor Administrator
+
+package "Frontend" as Frontend {
+    component "Content reading UI" as ContentReadingUI
+    component "Content management UI" as ContentManagementUI
+    component "User management UI" as UserManagementUI
+    component "Session management" as SessionManagement
+}
+
+package "Backend" {
+    component "User service" as UserService
+    component "Content management service" as ContentManagementService
+    component "Content provider service" as ContentProviderService
+    component "Content processing service" as ContentProcessingService
+}
+
+Viewer --> ContentReadingUI
+
+Editor --> ContentReadingUI
+Editor --> ContentManagementUI
+
+Administrator --> ContentReadingUI
+Administrator --> ContentManagementUI
+Administrator --> UserManagementUI
+
+UserManagementUI --> UserService
+ContentManagementUI --> ContentManagementService
+ContentManagementService --> ContentProcessingService
+ContentReadingUI --> ContentProviderService
+SessionManagement --> UserService
+
+@enduml

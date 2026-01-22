@@ -1,0 +1,12 @@
+@startuml User-Register-Sequence-Diagram
+
+actor User
+participant "SWP webapp" as SWPWebapp
+participant "User management service" as UserManagementService
+
+User --> SWPWebapp : Registers account
+SWPWebapp --> UserManagementService : createUser() 
+UserManagementService --> SWPWebapp : HTTP 200
+SWPWebapp --> User : Success message
+
+@enduml

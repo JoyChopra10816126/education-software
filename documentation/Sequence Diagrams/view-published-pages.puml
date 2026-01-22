@@ -1,0 +1,23 @@
+@startuml View-Published-Pages-Sequence-Diagram
+
+actor Viewer
+
+participant "SWP webapp" as SWPWebapp
+participant "Content provider service" as ContentProviderService
+
+Viewer --> SWPWebapp : Opens home page
+SWPWebapp --> ContentProviderService : getBooks()
+ContentProviderService --> SWPWebapp : Books
+SWPWebapp --> Viewer : Displays books
+
+Viewer --> SWPWebapp : Opens book details
+SWPWebapp --> ContentProviderService : getChapters()
+ContentProviderService --> SWPWebapp : Chapters
+SWPWebapp --> Viewer : Displays chapters
+
+Viewer --> SWPWebapp : Opens chapter details
+SWPWebapp --> ContentProviderService : getSections()
+ContentProviderService --> SWPWebapp : Sections
+SWPWebapp --> Viewer : Displays sections
+
+@enduml

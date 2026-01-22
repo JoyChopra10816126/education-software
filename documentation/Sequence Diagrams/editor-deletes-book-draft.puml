@@ -1,0 +1,12 @@
+@startuml Editor-Delete-Book-Draft-Sequence-Diagram
+
+actor Editor
+participant "SWP webapp" as SWPWebapp
+participant "Content management service" as ContentManagementService
+
+Editor --> SWPWebapp : Submit request
+SWPWebapp --> ContentManagementService : deleteBook() 
+ContentManagementService --> SWPWebapp : HTTP 200
+SWPWebapp --> Editor : Success message
+
+@enduml

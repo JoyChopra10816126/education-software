@@ -1,0 +1,15 @@
+@startuml Editor-Create-Chapter-Draft-Sequence-Diagram
+
+actor Editor
+participant "SWP webapp" as SWPWebapp
+participant "Content management service" as ContentManagementService
+participant "Content processing service" as ContentProcessingService
+
+Editor --> SWPWebapp : Uploads document
+SWPWebapp --> ContentManagementService : createChapter() 
+ContentManagementService --> ContentProcessingService : processDocument()
+ContentProcessingService --> ContentManagementService : Processed document
+ContentManagementService --> SWPWebapp : Processed document
+SWPWebapp --> Editor : Displays processed document in card format
+
+@enduml

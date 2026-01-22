@@ -1,0 +1,12 @@
+@startuml Administrator-Publish-Chapter-Sequence-Diagram
+
+actor Administrator
+participant "SWP webapp" as SWPWebapp
+participant "Content management service" as ContentManagementService
+
+Administrator --> SWPWebapp : Submit request
+SWPWebapp --> ContentManagementService : updateChapter() 
+ContentManagementService --> SWPWebapp : HTTP 200
+SWPWebapp --> Administrator : Success message
+
+@enduml
