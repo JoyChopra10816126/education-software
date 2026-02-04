@@ -1,4 +1,5 @@
 import BookCard from "../components/BookCard";
+import Link from 'next/link';
 
 interface Book {
   id: string;
@@ -29,12 +30,17 @@ export default async function Home() {
       <div className="w-full grid grid-cols-2 gap-3">
         {books.length > 0 ? (
           books.map((book) => (
-            <BookCard
+            <Link
               key={book.id}
-              title={book.title}
-              description={book.description}
-              imageUrl={book.coverImage}
-            />
+              href={`/books/${book.id}/chapters?title=${encodeURIComponent(book.title)}`}
+              className="block"
+            >
+              <BookCard
+                title={book.title}
+                description={book.description}
+                imageUrl={book.coverImage}
+              />
+            </Link>
           ))
         ) : (
           <p className="text-gray-500 mt-10">No books found.</p>
